@@ -6,35 +6,85 @@
 <title>Word Counter Tool</title>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial;
-  text-align: center;
-  background: #f4f4f4;
   margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #333;
 }
 
+/* Center container */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 30px 15px;
+}
+
+/* Card */
 .container {
+  background: #fff;
   max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  background: white;
+  width: 100%;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
+/* Title */
+h1 {
+  margin-top: 0;
+  text-align: center;
+  color: #444;
+}
+
+/* Description */
+p {
+  text-align: center;
+  color: #666;
+}
+
+/* Textarea */
 textarea {
   width: 100%;
   height: 150px;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 12px;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+  outline: none;
 }
 
+textarea:focus {
+  border-color: #667eea;
+}
+
+/* Result */
 .result {
   margin-top: 15px;
   font-size: 18px;
+  text-align: center;
   font-weight: bold;
 }
 
+/* Ads */
 .ad {
   margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #888;
 }
 </style>
 
@@ -42,38 +92,45 @@ textarea {
 
 <body>
 
-<div class="container">
+<div class="wrapper">
+  <div class="container">
 
-<h1>Word Counter Tool</h1>
-<p>Type or paste your text below:</p>
+    <h1>📝 Word Counter</h1>
+    <p>Type or paste your text below and get instant results</p>
 
-<!-- 🔝 TOP BANNER AD (728x90) -->
-<div class="ad">
-<script>
-  atOptions = {
-    'key' : 'aae3bbca5f2a39c6ef6322fdb513717b',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/aae3bbca5f2a39c6ef6322fdb513717b/invoke.js"></script>
-</div>
+    <!-- 🔝 TOP AD -->
+    <div class="ad">
+      <script>
+        atOptions = {
+          'key' : 'aae3bbca5f2a39c6ef6322fdb513717b',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/aae3bbca5f2a39c6ef6322fdb513717b/invoke.js"></script>
+    </div>
 
-<textarea id="text" oninput="countWords()"></textarea>
+    <!-- TOOL -->
+    <textarea id="text" placeholder="Start typing here..." oninput="countWords()"></textarea>
 
-<div class="result">
-Words: <span id="words">0</span> |
-Characters: <span id="chars">0</span>
-</div>
+    <div class="result">
+      Words: <span id="words">0</span> |
+      Characters: <span id="chars">0</span>
+    </div>
 
-<!-- 📌 NATIVE AD (MIDDLE) -->
-<div class="ad">
-<script async="async" data-cfasync="false" src="https://pl29127659.profitablecpmratenetwork.com/7b390bcdbc7753b230e55c786f1d95ed/invoke.js"></script>
-<div id="container-7b390bcdbc7753b230e55c786f1d95ed"></div>
-</div>
+    <!-- 📌 NATIVE AD -->
+    <div class="ad">
+      <script async="async" data-cfasync="false" src="https://pl29127659.profitablecpmratenetwork.com/7b390bcdbc7753b230e55c786f1d95ed/invoke.js"></script>
+      <div id="container-7b390bcdbc7753b230e55c786f1d95ed"></div>
+    </div>
 
+    <div class="footer">
+      Simple free tool for counting words and characters
+    </div>
+
+  </div>
 </div>
 
 <script>
@@ -81,7 +138,7 @@ function countWords() {
   let text = document.getElementById("text").value;
 
   let words = text.trim().split(/\s+/).filter(word => word.length > 0);
-  
+
   document.getElementById("words").innerText = words.length;
   document.getElementById("chars").innerText = text.length;
 }
